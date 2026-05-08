@@ -3,7 +3,9 @@ url: https://raw.githubusercontent.com/api-evangelist/reka-ai/refs/heads/main/ap
 name: Reka AI
 x-type: company
 description: >-
-  Reka AI is a multimodal foundation model company offering Reka Core, Flash, and Edge models that natively process text, images, video, and audio. The Reka platform exposes chat, agents, and document QA APIs.
+  Reka AI is a multimodal foundation model company offering Reka Core, Flash, Edge, and
+  Vision models that natively process text, images, video, and audio. The Reka platform
+  exposes Chat, Vision, Research, and Speech APIs.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -11,13 +13,44 @@ tags:
   - Inference
   - Multimodal
   - Foundation Models
+  - Vision
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: reka-ai:platform
+    name: Reka AI Platform API
+    description: >-
+      Multimodal API surface from Reka AI: Chat (text + vision multimodal), Vision (video
+      upload, search, Q&A, clip generation), Research (web search with reasoning and
+      citations), and Speech (audio transcription and translation). OpenAI-compatible
+      chat endpoint available.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.reka.ai/
+    baseURL: https://api.reka.ai
+    tags:
+      - AI
+      - LLM
+      - Chat Completions
+      - Vision
+      - Video
+      - Audio
+      - Research
+      - OpenAI Compatible
+    properties:
+      - type: Documentation
+        url: https://docs.reka.ai/
+      - type: Pricing
+        url: https://docs.reka.ai/pricing
+      - type: SignUp
+        url: https://platform.reka.ai/
+      - type: Models
+        url: https://www.reka.ai/
 common:
   - type: Website
     url: https://www.reka.ai/
+  - type: Documentation
+    url: https://docs.reka.ai/
   - type: Plans
     url: plans/reka-ai-plans-pricing.yml
   - type: RateLimits
