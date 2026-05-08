@@ -1,0 +1,29 @@
+aid: reka-ai
+url: https://raw.githubusercontent.com/api-evangelist/reka-ai/refs/heads/main/apis.yml
+name: Reka AI
+x-type: company
+description: >-
+  Reka AI is a multimodal foundation model company offering Reka Core, Flash, and Edge models that natively process text, images, video, and audio. The Reka platform exposes chat, agents, and document QA APIs.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI
+  - LLM
+  - Inference
+  - Multimodal
+  - Foundation Models
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.reka.ai/
+  - type: Plans
+    url: plans/reka-ai-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/reka-ai-rate-limits.yml
+  - type: FinOps
+    url: finops/reka-ai-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
