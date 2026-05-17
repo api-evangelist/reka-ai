@@ -1,7 +1,7 @@
 aid: reka-ai
 url: https://raw.githubusercontent.com/api-evangelist/reka-ai/refs/heads/main/apis.yml
 name: Reka AI
-x-type: company
+kind: company
 description: >-
   Reka AI is a multimodal foundation model company offering Reka Core, Flash, Edge, and
   Vision models that natively process text, images, video, and audio. The Reka platform
