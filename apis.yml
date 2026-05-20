@@ -47,6 +47,10 @@ apis:
       - type: Models
         url: https://www.reka.ai/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/reka-ai
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/reka-ai
   - type: Website
     url: https://www.reka.ai/
   - type: Documentation
