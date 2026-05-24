@@ -61,6 +61,8 @@ common:
     url: rate-limits/reka-ai-rate-limits.yml
   - type: FinOps
     url: finops/reka-ai-finops.yml
+  - type: LLMsTxt
+    url: https://docs.reka.ai/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
