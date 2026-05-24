@@ -1,0 +1,366 @@
+openapi: 3.1.0
+info:
+  title: Reka AI Platform API
+  description: |
+    Reka AI's multimodal API surface: Chat (text + vision multimodal), Vision
+    (video upload, search, Q&A, clip generation), Research (web search with
+    reasoning and citations), and Speech (audio transcription and
+    translation). OpenAI-compatible chat endpoint available at
+    /v1/chat/completions.
+
+    Only a representative subset of endpoints is modeled here, drawn from
+    the public Reka documentation at https://docs.reka.ai.
+  version: "1.0.0"
+  contact:
+    name: Reka AI Documentation
+    url: https://docs.reka.ai/
+  license:
+    name: Reka Proprietary
+externalDocs:
+  description: Reka AI documentation
+  url: https://docs.reka.ai/
+servers:
+  - url: https://api.reka.ai
+    description: Reka AI production server
+tags:
+  - name: Chat
+    description: Chat completions over Reka multimodal models.
+  - name: Models
+    description: List available Reka models.
+  - name: Vision
+    description: Video and image management, search, Q&A, and clips.
+  - name: Speech
+    description: Audio transcription and translation.
+  - name: Research
+    description: OpenAI-compatible chat with optional web search and citations.
+security:
+  - bearerAuth: []
+paths:
+  /v1/chat:
+    post:
+      tags: [Chat]
+      summary: Create a chat completion
+      description: Multimodal chat completion over the Reka model family.
+      operationId: createChatCompletion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Chat completion response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+  /v1/chat/completions:
+    post:
+      tags: [Research]
+      summary: OpenAI-compatible chat completions
+      description: |
+        OpenAI-compatible chat completions endpoint, including Reka Research
+        models capable of web search with citations.
+      operationId: chatCompletions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Chat completion response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+  /v1/models:
+    get:
+      tags: [Models]
+      summary: List models
+      operationId: listModels
+      responses:
+        '200':
+          description: List of models.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Model'
+  /v1/videos/upload:
+    post:
+      tags: [Vision]
+      summary: Upload a video
+      operationId: uploadVideo
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Video uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+  /v1/videos:
+    get:
+      tags: [Vision]
+      summary: List videos
+      operationId: listVideos
+      responses:
+        '200':
+          description: List of videos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Video'
+  /v1/videos/{video_id}:
+    get:
+      tags: [Vision]
+      summary: Get a video
+      operationId: getVideo
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Video details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    delete:
+      tags: [Vision]
+      summary: Delete a video
+      operationId: deleteVideo
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Video deleted.
+  /v1/search:
+    post:
+      tags: [Vision]
+      summary: Search videos
+      operationId: searchVideos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                limit:
+                  type: integer
+                  default: 20
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /v1/qa/chat:
+    post:
+      tags: [Vision]
+      summary: Video Q&A chat
+      operationId: qaChat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [messages]
+              properties:
+                video_id:
+                  type: string
+                messages:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+  /v1/clips:
+    post:
+      tags: [Vision]
+      summary: Create video clips
+      operationId: createClips
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [video_id]
+              properties:
+                video_id:
+                  type: string
+                prompt:
+                  type: string
+      responses:
+        '202':
+          description: Clip job accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+  /v1/speech/transcribe-translate:
+    post:
+      tags: [Speech]
+      summary: Transcribe or translate audio
+      operationId: speechTranscribeTranslate
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                mode:
+                  type: string
+                  enum: [transcribe, translate]
+                target_language:
+                  type: string
+      responses:
+        '200':
+          description: Result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: |
+        Bearer API key issued from the Reka Platform dashboard.
+  schemas:
+    Message:
+      type: object
+      required: [role, content]
+      properties:
+        role:
+          type: string
+          enum: [system, user, assistant, tool]
+        content:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: object
+    ChatRequest:
+      type: object
+      required: [model, messages]
+      properties:
+        model:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        max_tokens:
+          type: integer
+        temperature:
+          type: number
+        top_p:
+          type: number
+        stream:
+          type: boolean
+    ChatResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                $ref: '#/components/schemas/Message'
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        owned_by:
+          type: string
+    Video:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
