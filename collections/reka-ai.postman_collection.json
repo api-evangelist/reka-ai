@@ -1,0 +1,1161 @@
+{
+  "item": [
+    {
+      "id": "a7aeb2f2-559f-425d-8251-b9d33167c5c8",
+      "name": "Chat",
+      "description": {
+        "content": "Chat completions over Reka multimodal models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "363133cf-3428-47f3-acb5-9aaf485c9e6e",
+          "name": "Create a chat completion",
+          "request": {
+            "name": "Create a chat completion",
+            "description": {
+              "content": "Multimodal chat completion over the Reka model family.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "chat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\",\n  \"top_p\": \"<number>\",\n  \"stream\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d653f2d0-9bf1-4b3d-a1c3-34c51bab6781",
+              "name": "Chat completion response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "chat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"string\"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"string\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\",\n  \"top_p\": \"<number>\",\n  \"stream\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"model\": \"string\",\n  \"choices\": [\n    {\n      \"index\": 2136,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    },\n    {\n      \"index\": 1999,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 8638,\n    \"completion_tokens\": 2087,\n    \"total_tokens\": 7615\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ebd99a9c-5905-46a2-a69c-abce5c766629",
+      "name": "Models",
+      "description": {
+        "content": "List available Reka models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48cf0231-217f-4fa7-adf4-424024a0a821",
+          "name": "List models",
+          "request": {
+            "name": "List models",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "189efa33-ccf6-4683-aa2a-a7c9a89c3abc",
+              "name": "List of models.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"object\": \"string\",\n      \"owned_by\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"object\": \"string\",\n      \"owned_by\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e58a037b-e1e2-4ef8-ab66-10795a772783",
+      "name": "Vision",
+      "description": {
+        "content": "Video and image management, search, Q&A, and clips.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34f87f13-6d06-4bd1-8e87-f7d23a00767c",
+          "name": "Upload a video",
+          "request": {
+            "name": "Upload a video",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "videos",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "932b6871-cad4-40cb-b993-b435c7b8fc60",
+              "name": "Video uploaded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "videos",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"created_at\": \"1980-09-24T23:11:37.440Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01ca80f5-e399-4f03-b776-90be8473b3a4",
+          "name": "List videos",
+          "request": {
+            "name": "List videos",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "videos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11006a16-5a99-4b4b-81b0-18462d50079c",
+              "name": "List of videos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "videos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": \"1987-03-13T07:54:47.221Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": \"2017-08-05T11:58:11.809Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c5dc236-37af-4c69-97eb-807937f580e4",
+          "name": "Get a video",
+          "request": {
+            "name": "Get a video",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "videos",
+                ":video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dae98693-e2b8-45dc-bf7c-3feaa7edd15f",
+              "name": "Video details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "videos",
+                    ":video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"created_at\": \"1980-09-24T23:11:37.440Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e04bcae-948f-4c64-ae82-b285ec071e06",
+          "name": "Delete a video",
+          "request": {
+            "name": "Delete a video",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "videos",
+                ":video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1356912c-6a29-4111-ad81-c94d6430629f",
+              "name": "Video deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "videos",
+                    ":video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5fe96f8-527e-4bea-9dae-e7fe891cecd8",
+          "name": "Search videos",
+          "request": {
+            "name": "Search videos",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"limit\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f21efa98-0248-4b8b-acd9-51403ef4461a",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"limit\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32e3fdbf-58d3-4741-8a16-993db0266b20",
+          "name": "Video Q&A chat",
+          "request": {
+            "name": "Video Q&A chat",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "qa",
+                "chat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"video_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c92be98b-59c9-420f-9805-3b3210f00d35",
+              "name": "Response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "qa",
+                    "chat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"string\"\n    },\n    {\n      \"role\": \"system\",\n      \"content\": \"string\"\n    }\n  ],\n  \"video_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"model\": \"string\",\n  \"choices\": [\n    {\n      \"index\": 2136,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    },\n    {\n      \"index\": 1999,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 8638,\n    \"completion_tokens\": 2087,\n    \"total_tokens\": 7615\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40bfe6b7-f13b-4f41-8f86-7a2dabc1c543",
+          "name": "Create video clips",
+          "request": {
+            "name": "Create video clips",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "clips"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"video_id\": \"<string>\",\n  \"prompt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a67e1b88-7b84-4c6c-a964-e00418be131f",
+              "name": "Clip job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "clips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"video_id\": \"<string>\",\n  \"prompt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d2d3f46d-23d7-4cf2-b9f4-db8cccdaa167",
+      "name": "Speech",
+      "description": {
+        "content": "Audio transcription and translation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e98740e-b9cf-4e3d-b2cf-d1802915e8f9",
+          "name": "Transcribe or translate audio",
+          "request": {
+            "name": "Transcribe or translate audio",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "speech",
+                "transcribe-translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "mode",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": " (This can only be one of transcribe,translate)"
+                },
+                {
+                  "key": "target_language",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "16c62930-cb38-4532-9361-b39d037efd24",
+              "name": "Result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "speech",
+                    "transcribe-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of transcribe,translate)",
+                        "type": "text/plain"
+                      },
+                      "key": "mode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "target_language",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "25e627a9-a795-4641-a97c-6153c50be015",
+      "name": "Research",
+      "description": {
+        "content": "OpenAI-compatible chat with optional web search and citations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09b42365-0669-482a-a187-7093460dd9eb",
+          "name": "OpenAI-compatible chat completions",
+          "request": {
+            "name": "OpenAI-compatible chat completions",
+            "description": {
+              "content": "OpenAI-compatible chat completions endpoint, including Reka Research\nmodels capable of web search with citations.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\",\n  \"top_p\": \"<number>\",\n  \"stream\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b14ea9d3-3f4c-4433-93f5-57f6c9ce9918",
+              "name": "Chat completion response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"string\"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"string\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\",\n  \"top_p\": \"<number>\",\n  \"stream\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"model\": \"string\",\n  \"choices\": [\n    {\n      \"index\": 2136,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    },\n    {\n      \"index\": 1999,\n      \"message\": {\n        \"role\": \"tool\",\n        \"content\": \"string\"\n      },\n      \"finish_reason\": \"string\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 8638,\n    \"completion_tokens\": 2087,\n    \"total_tokens\": 7615\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.reka.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13f03257-f892-4e72-9d24-269a370fb888",
+    "name": "Reka AI Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reka AI's multimodal API surface: Chat (text + vision multimodal), Vision\n(video upload, search, Q&A, clip generation), Research (web search with\nreasoning and citations), and Speech (audio transcription and\ntranslation). OpenAI-compatible chat endpoint available at\n/v1/chat/completions.\n\nOnly a representative subset of endpoints is modeled here, drawn from\nthe public Reka documentation at https://docs.reka.ai.\n\n\nContact Support:\n Name: Reka AI Documentation",
+      "type": "text/plain"
+    }
+  }
+}

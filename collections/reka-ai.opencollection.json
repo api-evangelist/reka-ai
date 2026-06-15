@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reka AI Platform API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a chat completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Multimodal chat completion over the Reka model family."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Research",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OpenAI-compatible chat completions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/chat/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OpenAI-compatible chat completions endpoint, including Reka Research\nmodels capable of web search with citations.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reka.ai/v1/models"
+          },
+          "docs": "List models"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a video",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/videos/upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a video"
+        },
+        {
+          "info": {
+            "name": "List videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reka.ai/v1/videos"
+          },
+          "docs": "List videos"
+        },
+        {
+          "info": {
+            "name": "Get a video",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reka.ai/v1/videos/:video_id",
+            "params": [
+              {
+                "name": "video_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a video"
+        },
+        {
+          "info": {
+            "name": "Delete a video",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reka.ai/v1/videos/:video_id",
+            "params": [
+              {
+                "name": "video_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a video"
+        },
+        {
+          "info": {
+            "name": "Search videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search videos"
+        },
+        {
+          "info": {
+            "name": "Video Q&A chat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/qa/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Video Q&A chat"
+        },
+        {
+          "info": {
+            "name": "Create video clips",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/clips",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create video clips"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Speech",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Transcribe or translate audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/speech/transcribe-translate",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "target_language",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Transcribe or translate audio"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
