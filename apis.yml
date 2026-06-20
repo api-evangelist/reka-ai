@@ -6,7 +6,7 @@ description: >-
   Reka AI is a multimodal foundation model company offering Reka Core, Flash, Edge, and
   Vision models that natively process text, images, video, and audio. The Reka platform
   exposes Chat, Vision, Research, and Speech APIs.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - LLM
@@ -25,7 +25,7 @@ apis:
       upload, search, Q&A, clip generation), Research (web search with reasoning and
       citations), and Speech (audio transcription and translation). OpenAI-compatible
       chat endpoint available.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.reka.ai/
     baseURL: https://api.reka.ai
     tags:
